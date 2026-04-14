@@ -9,24 +9,18 @@
         /* Stanford Cardinal Red Palette & Dark Theme Variables */
         :root {
             --cardinal: #8C1515;
-            --cardinal-dark: #6b0f0f;
+            --cardinal-dark: #580c0c; /* Deep red for the header */
             --cardinal-glow: rgba(140, 21, 21, 0.4);
         }
         
         .bg-cardinal { background-color: var(--cardinal); }
+        .bg-cardinal-dark { background-color: var(--cardinal-dark); }
         .text-cardinal { color: var(--cardinal); }
         .border-cardinal { border-color: var(--cardinal); }
         .hover-bg-cardinal:hover { background-color: var(--cardinal-dark); }
         
         html { scroll-behavior: smooth; background-color: #030712; }
         
-        /* Dark, tech-inspired background pattern */
-        .bg-hero-pattern {
-            background-color: #030712;
-            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-            background-size: 30px 30px;
-        }
-
         /* Seamless Marquee Animation */
         @keyframes marquee {
             0% { transform: translateX(0); }
@@ -44,57 +38,70 @@
         /* Glowing card effect */
         .glow-card {
             transition: all 0.3s ease;
+            z-index: 10;
         }
         .glow-card:hover {
             box-shadow: 0 0 25px var(--cardinal-glow);
             border-color: var(--cardinal);
             transform: translateY(-2px);
         }
+
+        /* Interactive Cursor Glow Element */
+        #cursor-glow {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(140, 21, 21, 0.15) 0%, transparent 60%);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
     </style>
 </head>
-<body class="bg-gray-950 text-gray-300 font-sans antialiased selection:bg-red-900 selection:text-white">
+<body class="bg-gray-950 text-gray-300 font-sans antialiased selection:bg-red-900 selection:text-white relative">
 
-    <header class="bg-gray-950/80 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-gray-800">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <div id="cursor-glow"></div>
+
+    <header class="bg-cardinal-dark shadow-lg sticky top-0 z-50 border-b border-red-900">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center relative z-10">
             <div class="font-extrabold text-2xl tracking-tight text-white">
-                Stanford <span class="text-cardinal">PBJ</span>
+                Stanford <span class="text-red-300">PBJ</span>
             </div>
-            <nav class="hidden md:flex space-x-8 text-sm font-semibold text-gray-400 items-center">
+            <nav class="hidden md:flex space-x-8 text-sm font-semibold text-gray-200 items-center">
                 <a href="#mission" class="hover:text-white transition-colors">The Mission</a>
                 <a href="#the-facts" class="hover:text-white transition-colors">The Facts</a>
                 <a href="#team" class="hover:text-white transition-colors">Committee</a>
-                <a href="#petition" class="bg-cardinal text-white px-5 py-2 rounded shadow-lg hover-bg-cardinal transition-colors shadow-red-900/20">
+                <a href="#petition" class="bg-white text-cardinal px-5 py-2 rounded shadow-lg hover:bg-gray-100 transition-colors shadow-red-950/50">
                     Sign the Petition
                 </a>
             </nav>
         </div>
     </header>
 
-    <section class="bg-hero-pattern py-28 px-6 border-b border-gray-800 relative overflow-hidden">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-red-900/20 blur-[100px] rounded-full pointer-events-none"></div>
-        
+    <section class="py-32 px-6 border-b border-gray-800 relative overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: linear-gradient(to bottom, rgba(3, 7, 18, 0.75), rgba(3, 7, 18, 0.95)), url('image_8f0851.jpeg');">
         <div class="max-w-4xl mx-auto text-center relative z-10">
-            <span class="inline-block py-1 px-3 rounded-full bg-gray-900 text-cardinal text-sm font-bold tracking-widest mb-6 uppercase border border-gray-800 shadow-inner">
+            <span class="inline-block py-1 px-3 rounded-full bg-gray-900/80 backdrop-blur text-cardinal text-sm font-bold tracking-widest mb-6 uppercase border border-red-900/50 shadow-inner">
                 Project for Biome re-Juvenation
             </span>
             <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tighter text-white">
-                Bring Back <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-cardinal">Lake Lagunita.</span>
+                Bring Back <br><span class="text-cardinal drop-shadow-lg">Lake Lagunita.</span>
             </h1>
-            <p class="text-xl md:text-2xl font-light mb-10 text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            <p class="text-xl md:text-2xl font-light mb-10 text-gray-300 max-w-3xl mx-auto leading-relaxed">
                 For over a century, Lake Lag was the heart of Stanford's campus. Today, it sits empty. We have the science to amend the obsolete regulations—and the plan to refill it.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
                 <a href="#petition" class="bg-cardinal text-white font-bold py-4 px-8 rounded shadow-lg hover-bg-cardinal transition-all transform hover:-translate-y-1">
                     Sign the Petition
                 </a>
-                <a href="#the-facts" class="bg-gray-900 border border-gray-700 text-white font-bold py-4 px-8 rounded shadow hover:bg-gray-800 hover:border-gray-500 transition-all">
+                <a href="#the-facts" class="bg-gray-900/80 backdrop-blur border border-gray-700 text-white font-bold py-4 px-8 rounded shadow hover:bg-gray-800 hover:border-gray-500 transition-all">
                     Read the Policy Brief
                 </a>
             </div>
         </div>
     </section>
 
-    <section id="mission" class="py-24 px-6 max-w-4xl mx-auto text-center">
+    <section id="mission" class="py-24 px-6 max-w-4xl mx-auto text-center relative z-10">
         <h2 class="text-4xl font-bold text-white mb-6 tracking-tight">A Legacy Lost to Bureaucracy</h2>
         <p class="text-lg text-gray-400 leading-relaxed mb-6">
             Constructed in 1876 by Leland Stanford, Lake Lagunita hosted the Big Game Bonfire, water carnivals, and generations of student memories. In 2013, Stanford signed a Habitat Conservation Plan (HCP) with the federal government that legally restricted the lake to 3-5 feet of water.
@@ -104,7 +111,7 @@
         </p>
     </section>
 
-    <section id="the-facts" class="py-24 px-6 bg-gray-900 border-y border-gray-800">
+    <section id="the-facts" class="py-24 px-6 bg-gray-900/50 backdrop-blur-sm border-y border-gray-800 relative z-10">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-bold text-white tracking-tight">The Ecological Reality</h2>
@@ -114,24 +121,30 @@
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="glow-card p-8 rounded-2xl bg-gray-950 border border-gray-800 relative overflow-hidden group">
                     <div class="absolute top-0 left-0 w-full h-1 bg-gray-800 group-hover:bg-cardinal transition-colors"></div>
-                    <div class="text-4xl mb-6 opacity-80 group-hover:opacity-100 transition-opacity">🐟</div>
-                    <h3 class="text-2xl font-bold mb-4 text-white">The Trout Are Safe</h3>
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="text-3xl opacity-80 group-hover:opacity-100 transition-opacity">🐟</div>
+                        <h3 class="text-2xl font-bold text-white">The Trout Are Safe</h3>
+                    </div>
                     <p class="text-gray-400 leading-relaxed text-sm">
                         The 2013 HCP restricted lake levels to protect steelhead trout from water diversions at San Francisquito Creek. However, following litigation, Stanford dismantled the Lagunita Diversion Dam in 2019. The creek diversion no longer exists, making this justification entirely obsolete.
                     </p>
                 </div>
                 <div class="glow-card p-8 rounded-2xl bg-gray-950 border border-gray-800 relative overflow-hidden group">
                     <div class="absolute top-0 left-0 w-full h-1 bg-gray-800 group-hover:bg-cardinal transition-colors"></div>
-                    <div class="text-4xl mb-6 opacity-80 group-hover:opacity-100 transition-opacity">🦎</div>
-                    <h3 class="text-2xl font-bold mb-4 text-white">Salamanders Thrive</h3>
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="text-3xl opacity-80 group-hover:opacity-100 transition-opacity">🦎</div>
+                        <h3 class="text-2xl font-bold text-white">Salamanders Thrive</h3>
+                    </div>
                     <p class="text-gray-400 leading-relaxed text-sm">
                         The very regulations keeping the lake empty admit that historical recreational water levels actually <em class="text-gray-300">facilitated</em> the persistence of the California tiger salamander on campus. Refilling the lake does not threaten their breeding grounds; it historically supported them.
                     </p>
                 </div>
                 <div class="glow-card p-8 rounded-2xl bg-gray-950 border border-gray-800 relative overflow-hidden group">
                     <div class="absolute top-0 left-0 w-full h-1 bg-gray-800 group-hover:bg-cardinal transition-colors"></div>
-                    <div class="text-4xl mb-6 opacity-80 group-hover:opacity-100 transition-opacity">💧</div>
-                    <h3 class="text-2xl font-bold mb-4 text-white">Cost-Free Solution</h3>
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="text-3xl opacity-80 group-hover:opacity-100 transition-opacity">💧</div>
+                        <h3 class="text-2xl font-bold text-white">Cost-Free Solution</h3>
+                    </div>
                     <p class="text-gray-400 leading-relaxed text-sm">
                         Stanford currently manages the lake using runoff and reservoirs entirely disconnected from sensitive habitats. By pushing for a science-backed, deregulatory amendment to the 2013 HCP, we can restore Lake Lagunita legally, ecologically, and safely.
                     </p>
@@ -140,18 +153,17 @@
         </div>
     </section>
 
-    <section id="team" class="py-24 overflow-hidden relative border-b border-gray-800">
+    <section id="team" class="py-24 overflow-hidden relative border-b border-gray-800 z-10 bg-gray-950">
         <div class="max-w-4xl mx-auto text-center px-6 mb-12">
             <h2 class="text-3xl font-bold text-white mb-4">The Restoration Committee</h2>
             <p class="text-sm text-cardinal font-bold tracking-widest uppercase">Project for Biome re-Juvenation</p>
         </div>
 
         <div class="relative w-full overflow-hidden py-4">
-            <div class="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-gray-950 to-transparent z-10 pointer-events-none"></div>
-            <div class="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-gray-950 to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-gray-950 to-transparent z-20 pointer-events-none"></div>
+            <div class="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-gray-950 to-transparent z-20 pointer-events-none"></div>
 
             <div class="animate-marquee hover:[animation-play-state:paused] flex gap-12 px-6">
-                
                 <div class="flex gap-12 items-center">
                     <a href="https://linkedin.com/in/#" target="_blank" class="group flex flex-col items-center gap-3 transition-transform hover:scale-110">
                         <img src="https://ui-avatars.com/api/?name=Tej&background=111827&color=fff&size=150" alt="Tej" class="w-24 h-24 rounded-full border-2 border-gray-800 group-hover:border-cardinal object-cover shadow-lg">
@@ -245,18 +257,17 @@
                         <span class="text-sm font-semibold text-gray-300 group-hover:text-white">Shrish</span>
                     </a>
                 </div>
-
             </div>
         </div>
         
-        <div class="text-center mt-12">
+        <div class="text-center mt-12 relative z-10">
             <a href="mailto:contact@stanfordpbj.org" class="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors bg-gray-900 border border-gray-800 px-6 py-3 rounded-full text-sm">
                 <span>📧</span> Contact the committee at <span class="text-cardinal font-bold">contact@stanfordpbj.org</span>
             </a>
         </div>
     </section>
 
-    <section id="petition" class="py-24 px-6 bg-cardinal text-white text-center relative overflow-hidden">
+    <section id="petition" class="py-24 px-6 bg-cardinal text-white text-center relative overflow-hidden z-10">
         <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent"></div>
         
         <div class="max-w-3xl mx-auto relative z-10">
@@ -277,7 +288,7 @@
         </div>
     </section>
 
-    <footer class="bg-[#020408] text-gray-600 py-12 text-center border-t border-gray-900">
+    <footer class="bg-[#020408] text-gray-600 py-12 text-center border-t border-gray-900 relative z-10">
         <div class="max-w-4xl mx-auto px-6">
             <div class="font-bold text-2xl tracking-tight text-gray-800 mb-4">
                 Stanford <span class="text-gray-700">PBJ</span>
@@ -286,5 +297,18 @@
         </div>
     </footer>
 
+    <script>
+        const blob = document.getElementById("cursor-glow");
+        
+        document.body.onpointermove = event => {
+            const { pageX, pageY } = event;
+            
+            // Using animate creates a much smoother, fluid tracking effect
+            blob.animate({
+                left: `${pageX}px`,
+                top: `${pageY}px`
+            }, { duration: 3000, fill: "forwards" });
+        }
+    </script>
 </body>
 </html>
