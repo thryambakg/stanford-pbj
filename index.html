@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stanford PBJ | Refill Lake Lagunita</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Stanford Cardinal Red Palette */
+        .bg-cardinal { background-color: #8C1515; }
+        .text-cardinal { color: #8C1515; }
+        .border-cardinal { border-color: #8C1515; }
+        .hover-bg-cardinal:hover { background-color: #730f0f; }
+        html { scroll-behavior: smooth; }
+        
+        /* Subtle background pattern for the hero */
+        .bg-hero-pattern {
+            background-image: radial-gradient(#ffffff 1px, transparent 1px);
+            background-size: 20px 20px;
+            background-color: #8C1515;
+            background-position: 0 0, 10px 10px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased selection:bg-red-200 selection:text-gray-900">
+
+    <header class="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-200">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="font-extrabold text-2xl tracking-tight text-gray-900">
+                Stanford <span class="text-cardinal">PBJ</span>
+            </div>
+            <nav class="hidden md:flex space-x-8 text-sm font-semibold text-gray-600 items-center">
+                <a href="#mission" class="hover:text-cardinal transition-colors">The Mission</a>
+                <a href="#the-facts" class="hover:text-cardinal transition-colors">The Facts</a>
+                <a href="#team" class="hover:text-cardinal transition-colors">Our Committee</a>
+                <a href="#petition" class="bg-cardinal text-white px-5 py-2 rounded shadow hover-bg-cardinal transition-colors">
+                    Sign the Petition
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="bg-hero-pattern text-white py-24 px-6 border-b-8 border-gray-900">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="inline-block py-1 px-3 rounded-full bg-red-900 bg-opacity-50 text-red-100 text-sm font-bold tracking-wide mb-6 uppercase border border-red-800">
+                Project for Biome re-Juvenation
+            </span>
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight shadow-sm">
+                Bring Back Lake Lagunita.
+            </h1>
+            <p class="text-xl md:text-2xl font-light mb-10 text-red-50 max-w-3xl mx-auto leading-relaxed">
+                For over a century, Lake Lag was the heart of Stanford's campus. Today, it sits empty due to an obsolete federal agreement. We have the science to amend it—and the plan to refill it.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#petition" class="bg-white text-cardinal font-bold py-4 px-8 rounded shadow-lg hover:bg-gray-100 transition-all transform hover:-translate-y-0.5">
+                    Sign the Alumni & Student Petition
+                </a>
+                <a href="#the-facts" class="bg-transparent border-2 border-white text-white font-bold py-4 px-8 rounded shadow hover:bg-white hover:text-cardinal transition-all">
+                    Read the Policy Brief
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="mission" class="py-20 px-6 max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl font-bold text-gray-900 mb-6">A Legacy Lost to Bureaucracy</h2>
+        <p class="text-lg text-gray-600 leading-relaxed mb-6">
+            Constructed in 1876 by Leland Stanford, Lake Lagunita hosted the Big Game Bonfire, water carnivals, and generations of student memories. In 2013, Stanford signed a Habitat Conservation Plan (HCP) with the federal government that legally restricted the lake to 3-5 feet of water.
+        </p>
+        <p class="text-lg text-gray-600 leading-relaxed">
+            The HCP's original intent was to protect the California tiger salamander and the steelhead trout. But the ecological facts on the ground have drastically changed. <strong>We can refill the lake without harming protected species.</strong> All that stands in our way is updating the paperwork.
+        </p>
+    </section>
+
+    <section id="the-facts" class="bg-white py-20 px-6 border-y border-gray-200">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900">The Ecological Reality</h2>
+                <div class="w-24 h-1 bg-cardinal mx-auto mt-6"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="p-8 rounded-xl shadow-lg border border-gray-100 bg-gray-50 hover:shadow-xl transition-shadow relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-2 bg-cardinal"></div>
+                    <div class="text-4xl mb-6">🐟</div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">The Trout Are Safe</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        The 2013 HCP restricted lake levels to protect steelhead trout from water diversions at San Francisquito Creek. However, following litigation, Stanford dismantled the Lagunita Diversion Dam in 2019. The creek diversion no longer exists, making this justification entirely obsolete.
+                    </p>
+                </div>
+                <div class="p-8 rounded-xl shadow-lg border border-gray-100 bg-gray-50 hover:shadow-xl transition-shadow relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-2 bg-cardinal"></div>
+                    <div class="text-4xl mb-6">🦎</div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Salamanders Thrive</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        The very regulations keeping the lake empty admit that historical recreational water levels actually <em>facilitated</em> the persistence of the California tiger salamander on campus. Refilling the lake does not threaten their breeding grounds; it historically supported them.
+                    </p>
+                </div>
+                <div class="p-8 rounded-xl shadow-lg border border-gray-100 bg-gray-50 hover:shadow-xl transition-shadow relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-2 bg-cardinal"></div>
+                    <div class="text-4xl mb-6">💧</div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">A Cost-Free Solution</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Stanford currently manages the lake using runoff and reservoirs entirely disconnected from sensitive habitats. By pushing for a science-backed, deregulatory amendment to the 2013 HCP, we can restore Lake Lagunita legally, ecologically, and safely.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="petition" class="py-24 px-6 bg-gray-900 text-white text-center">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-4xl font-bold mb-6">The Administration Needs to Hear Us</h2>
+            <p class="text-xl text-gray-300 mb-10 font-light">
+                We have the connections and the facts. Now we need the numbers. Add your name to the official petition calling on Stanford University to amend the 2013 Habitat Conservation Plan.
+            </p>
+            <div class="bg-gray-800 p-8 rounded-lg shadow-inner border border-gray-700">
+                <h3 class="text-2xl font-bold mb-4 text-white">Join the Movement</h3>
+                <p class="text-gray-400 mb-6">Our official petition is launching soon. Leave your email to be the first to sign and share it with your network.</p>
+                <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+                    <input type="email" placeholder="stanford.alum@example.com" class="flex-1 px-4 py-3 rounded text-gray-900 focus:outline-none focus:ring-2 focus:ring-cardinal" required>
+                    <button type="submit" class="bg-cardinal font-bold py-3 px-8 rounded shadow hover-bg-cardinal transition-colors">
+                        Notify Me
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="py-20 px-6 bg-gray-50">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Lagunita Restoration Committee</h2>
+            <p class="text-lg text-cardinal font-semibold mb-12 uppercase tracking-wider">Project for Biome re-Juvenation (PBJ)</p>
+            
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <span class="bg-white px-6 py-3 rounded-full shadow-sm border border-gray-200 text-gray-800 font-medium">Tej</span>
+                <span class="bg-white px-6 py-3 rounded-full shadow-sm border border-gray-200 text-gray-800 font-medium">Neal</span>
+                <span class="bg-white px-6 py-3 rounded-full shadow-sm border border-gray-200 text-gray-800 font-medium">Thryambak</span>
+                <span class="bg-white px-6 py-3 rounded-full shadow-sm border border-gray-200 text-gray-800 font-medium">Arthur</span>
+                <span class="bg-white px-6 py-3 rounded-full shadow-sm border border-gray-200 text-gray-800 font-medium">Aakrisht</span>
+                <span class="bg-white px-6 py-3 rounded-full shadow-sm border border-gray-200 text-gray-800 font-medium">Ryan</span>
+            </div>
+
+            <div class="inline-flex items-center justify-center space-x-2 text-gray-600 bg-white px-6 py-4 rounded-lg shadow-sm border border-gray-200">
+                <span>📧 Contact the committee:</span>
+                <a href="mailto:contact@stanfordpbj.org" class="text-cardinal font-bold hover:underline">contact@stanfordpbj.org</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-950 text-gray-500 py-10 text-center border-t border-gray-800">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="font-bold text-xl tracking-tight text-gray-700 mb-4">
+                Stanford <span class="text-gray-600">PBJ</span>
+            </div>
+            <p class="text-sm mb-4">&copy; 2026 Stanford PBJ. This is an independent student advocacy initiative not officially affiliated with Stanford University administration.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
