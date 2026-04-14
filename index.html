@@ -6,101 +6,133 @@
     <title>Stanford PBJ | Refill Lake Lagunita</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Stanford Cardinal Red Palette */
-        .bg-cardinal { background-color: #8C1515; }
-        .text-cardinal { color: #8C1515; }
-        .border-cardinal { border-color: #8C1515; }
-        .hover-bg-cardinal:hover { background-color: #730f0f; }
-        html { scroll-behavior: smooth; }
+        /* Stanford Cardinal Red Palette & Dark Theme Variables */
+        :root {
+            --cardinal: #8C1515;
+            --cardinal-dark: #6b0f0f;
+            --cardinal-glow: rgba(140, 21, 21, 0.4);
+        }
         
-        /* Subtle background pattern for the hero */
+        .bg-cardinal { background-color: var(--cardinal); }
+        .text-cardinal { color: var(--cardinal); }
+        .border-cardinal { border-color: var(--cardinal); }
+        .hover-bg-cardinal:hover { background-color: var(--cardinal-dark); }
+        
+        html { scroll-behavior: smooth; background-color: #030712; }
+        
+        /* Dark, tech-inspired background pattern */
         .bg-hero-pattern {
-            background-image: radial-gradient(#ffffff 1px, transparent 1px);
-            background-size: 20px 20px;
-            background-color: #8C1515;
-            background-position: 0 0, 10px 10px;
+            background-color: #030712;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* Seamless Marquee Animation */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee 35s linear infinite;
+        }
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+
+        /* Glowing card effect */
+        .glow-card {
+            transition: all 0.3s ease;
+        }
+        .glow-card:hover {
+            box-shadow: 0 0 25px var(--cardinal-glow);
+            border-color: var(--cardinal);
+            transform: translateY(-2px);
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans antialiased selection:bg-red-200 selection:text-gray-900">
+<body class="bg-gray-950 text-gray-300 font-sans antialiased selection:bg-red-900 selection:text-white">
 
-    <header class="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-200">
+    <header class="bg-gray-950/80 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-gray-800">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="font-extrabold text-2xl tracking-tight text-gray-900">
+            <div class="font-extrabold text-2xl tracking-tight text-white">
                 Stanford <span class="text-cardinal">PBJ</span>
             </div>
-            <nav class="hidden md:flex space-x-8 text-sm font-semibold text-gray-600 items-center">
-                <a href="#mission" class="hover:text-cardinal transition-colors">The Mission</a>
-                <a href="#the-facts" class="hover:text-cardinal transition-colors">The Facts</a>
-                <a href="#team" class="hover:text-cardinal transition-colors">Our Committee</a>
-                <a href="#petition" class="bg-cardinal text-white px-5 py-2 rounded shadow hover-bg-cardinal transition-colors">
+            <nav class="hidden md:flex space-x-8 text-sm font-semibold text-gray-400 items-center">
+                <a href="#mission" class="hover:text-white transition-colors">The Mission</a>
+                <a href="#the-facts" class="hover:text-white transition-colors">The Facts</a>
+                <a href="#team" class="hover:text-white transition-colors">Committee</a>
+                <a href="#petition" class="bg-cardinal text-white px-5 py-2 rounded shadow-lg hover-bg-cardinal transition-colors shadow-red-900/20">
                     Sign the Petition
                 </a>
             </nav>
         </div>
     </header>
 
-    <section class="bg-hero-pattern text-white py-24 px-6 border-b-8 border-gray-900">
-        <div class="max-w-4xl mx-auto text-center">
-            <span class="inline-block py-1 px-3 rounded-full bg-red-900 bg-opacity-50 text-red-100 text-sm font-bold tracking-wide mb-6 uppercase border border-red-800">
+    <section class="bg-hero-pattern py-28 px-6 border-b border-gray-800 relative overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-red-900/20 blur-[100px] rounded-full pointer-events-none"></div>
+        
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <span class="inline-block py-1 px-3 rounded-full bg-gray-900 text-cardinal text-sm font-bold tracking-widest mb-6 uppercase border border-gray-800 shadow-inner">
                 Project for Biome re-Juvenation
             </span>
-            <h1 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight shadow-sm">
-                Bring Back Lake Lagunita.
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tighter text-white">
+                Bring Back <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-cardinal">Lake Lagunita.</span>
             </h1>
-            <p class="text-xl md:text-2xl font-light mb-10 text-red-50 max-w-3xl mx-auto leading-relaxed">
-                For over a century, Lake Lag was the heart of Stanford's campus. Today, it sits empty due to an obsolete federal agreement. We have the science to amend it—and the plan to refill it.
+            <p class="text-xl md:text-2xl font-light mb-10 text-gray-400 max-w-3xl mx-auto leading-relaxed">
+                For over a century, Lake Lag was the heart of Stanford's campus. Today, it sits empty. We have the science to amend the obsolete regulations—and the plan to refill it.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#petition" class="bg-white text-cardinal font-bold py-4 px-8 rounded shadow-lg hover:bg-gray-100 transition-all transform hover:-translate-y-0.5">
-                    Sign the Alumni & Student Petition
+                <a href="#petition" class="bg-cardinal text-white font-bold py-4 px-8 rounded shadow-lg hover-bg-cardinal transition-all transform hover:-translate-y-1">
+                    Sign the Petition
                 </a>
-                <a href="#the-facts" class="bg-transparent border-2 border-white text-white font-bold py-4 px-8 rounded shadow hover:bg-white hover:text-cardinal transition-all">
+                <a href="#the-facts" class="bg-gray-900 border border-gray-700 text-white font-bold py-4 px-8 rounded shadow hover:bg-gray-800 hover:border-gray-500 transition-all">
                     Read the Policy Brief
                 </a>
             </div>
         </div>
     </section>
 
-    <section id="mission" class="py-20 px-6 max-w-4xl mx-auto text-center">
-        <h2 class="text-4xl font-bold text-gray-900 mb-6">A Legacy Lost to Bureaucracy</h2>
-        <p class="text-lg text-gray-600 leading-relaxed mb-6">
+    <section id="mission" class="py-24 px-6 max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl font-bold text-white mb-6 tracking-tight">A Legacy Lost to Bureaucracy</h2>
+        <p class="text-lg text-gray-400 leading-relaxed mb-6">
             Constructed in 1876 by Leland Stanford, Lake Lagunita hosted the Big Game Bonfire, water carnivals, and generations of student memories. In 2013, Stanford signed a Habitat Conservation Plan (HCP) with the federal government that legally restricted the lake to 3-5 feet of water.
         </p>
-        <p class="text-lg text-gray-600 leading-relaxed">
-            The HCP's original intent was to protect the California tiger salamander and the steelhead trout. But the ecological facts on the ground have drastically changed. <strong>We can refill the lake without harming protected species.</strong> All that stands in our way is updating the paperwork.
+        <p class="text-lg text-gray-400 leading-relaxed">
+            The HCP's original intent was to protect the California tiger salamander and the steelhead trout. But the ecological facts on the ground have drastically changed. <strong class="text-white">We can refill the lake without harming protected species.</strong> All that stands in our way is updating the paperwork.
         </p>
     </section>
 
-    <section id="the-facts" class="bg-white py-20 px-6 border-y border-gray-200">
+    <section id="the-facts" class="py-24 px-6 bg-gray-900 border-y border-gray-800">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900">The Ecological Reality</h2>
-                <div class="w-24 h-1 bg-cardinal mx-auto mt-6"></div>
+                <h2 class="text-4xl font-bold text-white tracking-tight">The Ecological Reality</h2>
+                <div class="w-24 h-1 bg-cardinal mx-auto mt-6 rounded-full"></div>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-10">
-                <div class="p-8 rounded-xl shadow-lg border border-gray-100 bg-gray-50 hover:shadow-xl transition-shadow relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-2 bg-cardinal"></div>
-                    <div class="text-4xl mb-6">🐟</div>
-                    <h3 class="text-2xl font-bold mb-4 text-gray-900">The Trout Are Safe</h3>
-                    <p class="text-gray-600 leading-relaxed">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glow-card p-8 rounded-2xl bg-gray-950 border border-gray-800 relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gray-800 group-hover:bg-cardinal transition-colors"></div>
+                    <div class="text-4xl mb-6 opacity-80 group-hover:opacity-100 transition-opacity">🐟</div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">The Trout Are Safe</h3>
+                    <p class="text-gray-400 leading-relaxed text-sm">
                         The 2013 HCP restricted lake levels to protect steelhead trout from water diversions at San Francisquito Creek. However, following litigation, Stanford dismantled the Lagunita Diversion Dam in 2019. The creek diversion no longer exists, making this justification entirely obsolete.
                     </p>
                 </div>
-                <div class="p-8 rounded-xl shadow-lg border border-gray-100 bg-gray-50 hover:shadow-xl transition-shadow relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-2 bg-cardinal"></div>
-                    <div class="text-4xl mb-6">🦎</div>
-                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Salamanders Thrive</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        The very regulations keeping the lake empty admit that historical recreational water levels actually <em>facilitated</em> the persistence of the California tiger salamander on campus. Refilling the lake does not threaten their breeding grounds; it historically supported them.
+                <div class="glow-card p-8 rounded-2xl bg-gray-950 border border-gray-800 relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gray-800 group-hover:bg-cardinal transition-colors"></div>
+                    <div class="text-4xl mb-6 opacity-80 group-hover:opacity-100 transition-opacity">🦎</div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Salamanders Thrive</h3>
+                    <p class="text-gray-400 leading-relaxed text-sm">
+                        The very regulations keeping the lake empty admit that historical recreational water levels actually <em class="text-gray-300">facilitated</em> the persistence of the California tiger salamander on campus. Refilling the lake does not threaten their breeding grounds; it historically supported them.
                     </p>
                 </div>
-                <div class="p-8 rounded-xl shadow-lg border border-gray-100 bg-gray-50 hover:shadow-xl transition-shadow relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-2 bg-cardinal"></div>
-                    <div class="text-4xl mb-6">💧</div>
-                    <h3 class="text-2xl font-bold mb-4 text-gray-900">A Cost-Free Solution</h3>
-                    <p class="text-gray-600 leading-relaxed">
+                <div class="glow-card p-8 rounded-2xl bg-gray-950 border border-gray-800 relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gray-800 group-hover:bg-cardinal transition-colors"></div>
+                    <div class="text-4xl mb-6 opacity-80 group-hover:opacity-100 transition-opacity">💧</div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Cost-Free Solution</h3>
+                    <p class="text-gray-400 leading-relaxed text-sm">
                         Stanford currently manages the lake using runoff and reservoirs entirely disconnected from sensitive habitats. By pushing for a science-backed, deregulatory amendment to the 2013 HCP, we can restore Lake Lagunita legally, ecologically, and safely.
                     </p>
                 </div>
@@ -108,18 +140,136 @@
         </div>
     </section>
 
-    <section id="petition" class="py-24 px-6 bg-gray-900 text-white text-center">
-        <div class="max-w-3xl mx-auto">
-            <h2 class="text-4xl font-bold mb-6">The Administration Needs to Hear Us</h2>
-            <p class="text-xl text-gray-300 mb-10 font-light">
+    <section id="team" class="py-24 overflow-hidden relative border-b border-gray-800">
+        <div class="max-w-4xl mx-auto text-center px-6 mb-12">
+            <h2 class="text-3xl font-bold text-white mb-4">The Restoration Committee</h2>
+            <p class="text-sm text-cardinal font-bold tracking-widest uppercase">Project for Biome re-Juvenation</p>
+        </div>
+
+        <div class="relative w-full overflow-hidden py-4">
+            <div class="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-gray-950 to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-gray-950 to-transparent z-10 pointer-events-none"></div>
+
+            <div class="animate-marquee hover:[animation-play-state:paused] flex gap-12 px-6">
+                
+                <div class="flex gap-12 items-center">
+                    <a href="https://linkedin.com/in/#" target="_blank" class="group flex flex-col items-center gap-3 transition-transform hover:scale-110">
+                        <img src="https://ui-avatars.com/api/?name=Tej&background=111827&color=fff&size=150" alt="Tej" class="w-24 h-24 rounded-full border-2 border-gray-800 group-hover:border-cardinal object-cover shadow-lg">
+                        <span class="text-sm font-semibold text-gray-300 group-hover:text-white">Tej</span>
+                    </a>
+                    <a href="https://linkedin.com/in/#" target="_blank" class="group flex flex-col items-center gap-3 transition-transform hover:scale-110">
+                        <img src="https://ui-avatars.com/api/?name=Neal&background=111827&color=fff&size=150" alt="Neal" class="w-24 h-24 rounded-full border-2 border-gray-800 group-hover:border-cardinal object-cover shadow-lg">
+                        <span class="text-sm font-semibold text-gray-300 group-hover:text-white">Neal</span>
+                    </a>
+                    <a href="https://linkedin.com/in/#" target="_blank" class="group flex flex-col items-center gap-3 transition-transform hover:scale-110">
+                        <img src="https://ui-avatars.com/api/?name=Thryambak&background=111827&color=fff&size=150" alt="Thryambak" class="w-24 h-24 rounded-full border-2 border-gray-800 group-hover:border-cardinal object-cover shadow-lg">
+                        <span class="text-sm font-semibold text-gray-300 group-hover:text-white">Thryambak</span>
+                    </a>
+                    <a href="https://linkedin.com/in/#" target="_blank" class="group flex flex-col items-center gap-3 transition-transform hover:scale-110">
+                        <img src="https://ui-avatars.com/api/?name=Arthur&background=111827&color=fff&size=150" alt="Arthur" class="w-24 h-24 rounded-full border-2 border-gray-800 group-hover:border-cardinal object-cover shadow-lg">
+                        <span class="text-sm font-semibold text-gray-300 group-hover:text-white">Arthur</span>
+                    </a>
+                    <a href="https://linkedin.com/in/#" target="_blank" class="group flex flex-col items-center gap-3 transition-transform hover:scale-110">
+                        <img src="https://ui-avatars.com/api/?name=Aakrisht&background=111827&color=fff&size=150" alt="Aakrisht" class="w-24 h-24 rounded-full border-2 border-gray-800 group-hover:border-cardinal object-cover shadow-lg">
+                        <span class="text-sm font-semibold text-gray-300 group-hover:text-white">Aakrisht</span>
+                    </a>
+                    <a href="https://linkedin.com/in/#" target="_blank" class="group flex flex-col items-center gap-3 transition-transform hover:scale-110">
+                        <img src="https://ui-avatars.com/api/?name=Ryan&background=111827&color=fff&size=150" alt="Ryan" class="w-24 h-24 rounded-full border-2 border-gray-800 group-hover:border-cardinal object-cover shadow-lg">
+                        <span class="text-sm font-semibold text-gray-300 group-hover:text-white">Ryan</span>
+                    </a>
+                    <a href="https://linkedin.com/in/#" target="_blank" class="group flex flex-col items-center gap-3 transition-transform hover:scale-110">
+                        <img src="https://ui-avatars.com/api/?name=Kieran&background=111827&color=fff&size=150" alt="Kieran" class="w-24 h-24 rounded-full border-2 border-gray-800 group-hover:border-cardinal object-cover shadow-lg">
+                        <span class="text-sm font-semibold text-gray-300 group-hover:text-white">Kieran</span>
+                    </a>
+                    <a href="https://linkedin.com/in/#" target="_blank" class="group flex flex-col items-center gap-3 transition-transform hover:scale-110">
+                        <img src="https://ui-avatars.com/api/?name=Saheb&background=111827&color=fff&size=150" alt="Saheb" class="w-24 h-24 rounded-full border-2 border-gray-800 group-hover:border-cardinal object-cover shadow-lg">
+                        <span class="text-sm font-semibold text-gray-300 group-hover:text-white">Saheb</span>
+                    </a>
+                    <a href="https://linkedin.com/in/#" target="_blank" class="group flex flex-col items-center gap-3 transition-transform hover:scale-110">
+                        <img src="https://ui-avatars.com/api/?name=Dilon&background=111827&color=fff&size=150" alt="Dilon" class="w-24 h-24 rounded-full border-2 border-gray-800 group-hover:border-cardinal object-cover shadow-lg">
+                        <span class="text-sm font-semibold text-gray-300 group-hover:text-white">Dilon</span>
+                    </a>
+                    <a href="https://linkedin.com/in/#" target="_blank" class="group flex flex-col items-center gap-3 transition-transform hover:scale-110">
+                        <img src="https://ui-avatars.com/api/?name=Ram&background=111827&color=fff&size=150" alt="Ram" class="w-24 h-24 rounded-full border-2 border-gray-800 group-hover:border-cardinal object-cover shadow-lg">
+                        <span class="text-sm font-semibold text-gray-300 group-hover:text-white">Ram</span>
+                    </a>
+                    <a href="https://linkedin.com/in/#" target="_blank" class="group flex flex-col items-center gap-3 transition-transform hover:scale-110">
+                        <img src="https://ui-avatars.com/api/?name=Shrish&background=111827&color=fff&size=150" alt="Shrish" class="w-24 h-24 rounded-full border-2 border-gray-800 group-hover:border-cardinal object-cover shadow-lg">
+                        <span class="text-sm font-semibold text-gray-300 group-hover:text-white">Shrish</span>
+                    </a>
+                </div>
+
+                <div class="flex gap-12 items-center">
+                    <a href="https://linkedin.com/in/#" target="_blank" class="group flex flex-col items-center gap-3 transition-transform hover:scale-110">
+                        <img src="https://ui-avatars.com/api/?name=Tej&background=111827&color=fff&size=150" alt="Tej" class="w-24 h-24 rounded-full border-2 border-gray-800 group-hover:border-cardinal object-cover shadow-lg">
+                        <span class="text-sm font-semibold text-gray-300 group-hover:text-white">Tej</span>
+                    </a>
+                    <a href="https://linkedin.com/in/#" target="_blank" class="group flex flex-col items-center gap-3 transition-transform hover:scale-110">
+                        <img src="https://ui-avatars.com/api/?name=Neal&background=111827&color=fff&size=150" alt="Neal" class="w-24 h-24 rounded-full border-2 border-gray-800 group-hover:border-cardinal object-cover shadow-lg">
+                        <span class="text-sm font-semibold text-gray-300 group-hover:text-white">Neal</span>
+                    </a>
+                    <a href="https://linkedin.com/in/#" target="_blank" class="group flex flex-col items-center gap-3 transition-transform hover:scale-110">
+                        <img src="https://ui-avatars.com/api/?name=Thryambak&background=111827&color=fff&size=150" alt="Thryambak" class="w-24 h-24 rounded-full border-2 border-gray-800 group-hover:border-cardinal object-cover shadow-lg">
+                        <span class="text-sm font-semibold text-gray-300 group-hover:text-white">Thryambak</span>
+                    </a>
+                    <a href="https://linkedin.com/in/#" target="_blank" class="group flex flex-col items-center gap-3 transition-transform hover:scale-110">
+                        <img src="https://ui-avatars.com/api/?name=Arthur&background=111827&color=fff&size=150" alt="Arthur" class="w-24 h-24 rounded-full border-2 border-gray-800 group-hover:border-cardinal object-cover shadow-lg">
+                        <span class="text-sm font-semibold text-gray-300 group-hover:text-white">Arthur</span>
+                    </a>
+                    <a href="https://linkedin.com/in/#" target="_blank" class="group flex flex-col items-center gap-3 transition-transform hover:scale-110">
+                        <img src="https://ui-avatars.com/api/?name=Aakrisht&background=111827&color=fff&size=150" alt="Aakrisht" class="w-24 h-24 rounded-full border-2 border-gray-800 group-hover:border-cardinal object-cover shadow-lg">
+                        <span class="text-sm font-semibold text-gray-300 group-hover:text-white">Aakrisht</span>
+                    </a>
+                    <a href="https://linkedin.com/in/#" target="_blank" class="group flex flex-col items-center gap-3 transition-transform hover:scale-110">
+                        <img src="https://ui-avatars.com/api/?name=Ryan&background=111827&color=fff&size=150" alt="Ryan" class="w-24 h-24 rounded-full border-2 border-gray-800 group-hover:border-cardinal object-cover shadow-lg">
+                        <span class="text-sm font-semibold text-gray-300 group-hover:text-white">Ryan</span>
+                    </a>
+                    <a href="https://linkedin.com/in/#" target="_blank" class="group flex flex-col items-center gap-3 transition-transform hover:scale-110">
+                        <img src="https://ui-avatars.com/api/?name=Kieran&background=111827&color=fff&size=150" alt="Kieran" class="w-24 h-24 rounded-full border-2 border-gray-800 group-hover:border-cardinal object-cover shadow-lg">
+                        <span class="text-sm font-semibold text-gray-300 group-hover:text-white">Kieran</span>
+                    </a>
+                    <a href="https://linkedin.com/in/#" target="_blank" class="group flex flex-col items-center gap-3 transition-transform hover:scale-110">
+                        <img src="https://ui-avatars.com/api/?name=Saheb&background=111827&color=fff&size=150" alt="Saheb" class="w-24 h-24 rounded-full border-2 border-gray-800 group-hover:border-cardinal object-cover shadow-lg">
+                        <span class="text-sm font-semibold text-gray-300 group-hover:text-white">Saheb</span>
+                    </a>
+                    <a href="https://linkedin.com/in/#" target="_blank" class="group flex flex-col items-center gap-3 transition-transform hover:scale-110">
+                        <img src="https://ui-avatars.com/api/?name=Dilon&background=111827&color=fff&size=150" alt="Dilon" class="w-24 h-24 rounded-full border-2 border-gray-800 group-hover:border-cardinal object-cover shadow-lg">
+                        <span class="text-sm font-semibold text-gray-300 group-hover:text-white">Dilon</span>
+                    </a>
+                    <a href="https://linkedin.com/in/#" target="_blank" class="group flex flex-col items-center gap-3 transition-transform hover:scale-110">
+                        <img src="https://ui-avatars.com/api/?name=Ram&background=111827&color=fff&size=150" alt="Ram" class="w-24 h-24 rounded-full border-2 border-gray-800 group-hover:border-cardinal object-cover shadow-lg">
+                        <span class="text-sm font-semibold text-gray-300 group-hover:text-white">Ram</span>
+                    </a>
+                    <a href="https://linkedin.com/in/#" target="_blank" class="group flex flex-col items-center gap-3 transition-transform hover:scale-110">
+                        <img src="https://ui-avatars.com/api/?name=Shrish&background=111827&color=fff&size=150" alt="Shrish" class="w-24 h-24 rounded-full border-2 border-gray-800 group-hover:border-cardinal object-cover shadow-lg">
+                        <span class="text-sm font-semibold text-gray-300 group-hover:text-white">Shrish</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        
+        <div class="text-center mt-12">
+            <a href="mailto:contact@stanfordpbj.org" class="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors bg-gray-900 border border-gray-800 px-6 py-3 rounded-full text-sm">
+                <span>📧</span> Contact the committee at <span class="text-cardinal font-bold">contact@stanfordpbj.org</span>
+            </a>
+        </div>
+    </section>
+
+    <section id="petition" class="py-24 px-6 bg-cardinal text-white text-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent"></div>
+        
+        <div class="max-w-3xl mx-auto relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 tracking-tight">The Administration Needs to Hear Us</h2>
+            <p class="text-xl text-red-100 mb-10 font-light">
                 We have the connections and the facts. Now we need the numbers. Add your name to the official petition calling on Stanford University to amend the 2013 Habitat Conservation Plan.
             </p>
-            <div class="bg-gray-800 p-8 rounded-lg shadow-inner border border-gray-700">
+            <div class="bg-gray-950/40 backdrop-blur-md p-8 md:p-10 rounded-2xl shadow-2xl border border-red-800/30">
                 <h3 class="text-2xl font-bold mb-4 text-white">Join the Movement</h3>
-                <p class="text-gray-400 mb-6">Our official petition is launching soon. Leave your email to be the first to sign and share it with your network.</p>
-                <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
-                    <input type="email" placeholder="stanford.alum@example.com" class="flex-1 px-4 py-3 rounded text-gray-900 focus:outline-none focus:ring-2 focus:ring-cardinal" required>
-                    <button type="submit" class="bg-cardinal font-bold py-3 px-8 rounded shadow hover-bg-cardinal transition-colors">
+                <p class="text-red-100 mb-8">Our official petition is launching soon. Leave your email to be the first to sign and share it with your network.</p>
+                <form class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
+                    <input type="email" placeholder="stanford.alum@example.com" class="flex-1 px-5 py-4 rounded-lg bg-gray-900 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-red-400 focus:ring-1 focus:ring-red-400 transition-colors" required>
+                    <button type="submit" class="bg-white text-cardinal font-bold py-4 px-8 rounded-lg shadow-lg hover:bg-gray-100 transition-colors">
                         Notify Me
                     </button>
                 </form>
@@ -127,38 +277,12 @@
         </div>
     </section>
 
-    <section id="team" class="py-20 px-6 bg-gray-50">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-bold text-gray-900 mb-4">Lagunita Restoration Committee</h2>
-            <p class="text-lg text-cardinal font-semibold mb-12 uppercase tracking-wider">Project for Biome re-Juvenation (PBJ)</p>
-            
-            <div class="flex flex-wrap justify-center gap-4 mb-12">
-                <span class="bg-white px-6 py-3 rounded-full shadow-sm border border-gray-200 text-gray-800 font-medium">Tej</span>
-                <span class="bg-white px-6 py-3 rounded-full shadow-sm border border-gray-200 text-gray-800 font-medium">Neal</span>
-                <span class="bg-white px-6 py-3 rounded-full shadow-sm border border-gray-200 text-gray-800 font-medium">Thryambak</span>
-                <span class="bg-white px-6 py-3 rounded-full shadow-sm border border-gray-200 text-gray-800 font-medium">Arthur</span>
-                <span class="bg-white px-6 py-3 rounded-full shadow-sm border border-gray-200 text-gray-800 font-medium">Aakrisht</span>
-                <span class="bg-white px-6 py-3 rounded-full shadow-sm border border-gray-200 text-gray-800 font-medium">Ryan</span>
-                <span class="bg-white px-6 py-3 rounded-full shadow-sm border border-gray-200 text-gray-800 font-medium">Kieran</span>
-                <span class="bg-white px-6 py-3 rounded-full shadow-sm border border-gray-200 text-gray-800 font-medium">Saheb</span>
-                <span class="bg-white px-6 py-3 rounded-full shadow-sm border border-gray-200 text-gray-800 font-medium">Dilon</span>
-                <span class="bg-white px-6 py-3 rounded-full shadow-sm border border-gray-200 text-gray-800 font-medium">Ram</span>
-                <span class="bg-white px-6 py-3 rounded-full shadow-sm border border-gray-200 text-gray-800 font-medium">Shrish</span>
-            </div>
-
-            <div class="inline-flex items-center justify-center space-x-2 text-gray-600 bg-white px-6 py-4 rounded-lg shadow-sm border border-gray-200">
-                <span>📧 Contact the committee:</span>
-                <a href="mailto:contact@stanfordpbj.org" class="text-cardinal font-bold hover:underline">contact@stanfordpbj.org</a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-gray-950 text-gray-500 py-10 text-center border-t border-gray-800">
+    <footer class="bg-[#020408] text-gray-600 py-12 text-center border-t border-gray-900">
         <div class="max-w-4xl mx-auto px-6">
-            <div class="font-bold text-xl tracking-tight text-gray-700 mb-4">
-                Stanford <span class="text-gray-600">PBJ</span>
+            <div class="font-bold text-2xl tracking-tight text-gray-800 mb-4">
+                Stanford <span class="text-gray-700">PBJ</span>
             </div>
-            <p class="text-sm mb-4">&copy; 2026 Stanford PBJ. This is an independent student advocacy initiative not officially affiliated with Stanford University administration.</p>
+            <p class="text-sm mb-4 max-w-lg mx-auto">&copy; 2026 Stanford PBJ. This is an independent student advocacy initiative not officially affiliated with Stanford University administration.</p>
         </div>
     </footer>
 
