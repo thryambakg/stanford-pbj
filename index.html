@@ -59,19 +59,19 @@
             z-index: 0;
         }
 
-        /* Blue Rainfall Animation */
+        /* Steady Blue Rainfall Animation */
         @keyframes rain-drop {
             0% { transform: translateY(-200px); opacity: 0; }
-            10% { opacity: 1; }
-            80% { opacity: 1; }
+            15% { opacity: 1; }
+            85% { opacity: 1; }
             100% { transform: translateY(800px); opacity: 0; }
         }
         .rain-streak {
             position: absolute;
             top: -150px;
             width: 2px;
-            height: 150px;
-            background: linear-gradient(to bottom, transparent, rgba(56, 189, 248, 0.1), rgba(14, 165, 233, 0.8));
+            height: 120px;
+            background: linear-gradient(to bottom, transparent, rgba(56, 189, 248, 0.1), rgba(14, 165, 233, 0.6));
             border-radius: 999px;
             animation: rain-drop linear infinite;
         }
@@ -200,7 +200,7 @@
                         <span class="text-sm font-semibold text-gray-300 group-hover:text-white">Arthur</span>
                     </a>
                     <a href="https://www.linkedin.com/in/aakrishtmehra/" target="_blank" class="group flex flex-col items-center gap-3 transition-transform hover:scale-110">
-                        <img src="aak_headshot.png" alt="Aakrisht" class="w-24 h-24 rounded-full border-2 border-gray-800 group-hover:border-cardinal object-cover shadow-lg">
+                        <img src="aak_headshot.jpeg" alt="Aakrisht" class="w-24 h-24 rounded-full border-2 border-gray-800 group-hover:border-cardinal object-cover shadow-lg">
                         <span class="text-sm font-semibold text-gray-300 group-hover:text-white">Aakrisht</span>
                     </a>
                     <a href="https://www.linkedin.com/in/ryan-li07/" target="_blank" class="group flex flex-col items-center gap-3 transition-transform hover:scale-110">
@@ -289,16 +289,24 @@
         </div>
     </section>
 
-    <section id="petition" class="py-24 px-6 bg-[#030712] relative overflow-hidden z-10 border-b border-gray-800">
+    <section id="petition" class="py-24 px-6 bg-gradient-to-b from-gray-950 via-[#1f0505] to-[#020408] relative overflow-hidden z-10 border-t border-gray-800">
         
-        <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-60">
-            <div class="rain-streak" style="left: 10%; animation-duration: 2.5s; animation-delay: 0.1s;"></div>
-            <div class="rain-streak" style="left: 25%; animation-duration: 3.2s; animation-delay: 1.5s;"></div>
-            <div class="rain-streak" style="left: 40%; animation-duration: 2.8s; animation-delay: 0.7s;"></div>
-            <div class="rain-streak" style="left: 55%; animation-duration: 3.5s; animation-delay: 0.2s;"></div>
-            <div class="rain-streak" style="left: 70%; animation-duration: 2.2s; animation-delay: 2.1s;"></div>
-            <div class="rain-streak" style="left: 85%; animation-duration: 3.0s; animation-delay: 1.1s;"></div>
-            <div class="rain-streak" style="left: 95%; animation-duration: 2.7s; animation-delay: 0.4s;"></div>
+        <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-40">
+            <div class="rain-streak" style="left: 5%; animation-duration: 2.1s; animation-delay: 0.2s;"></div>
+            <div class="rain-streak" style="left: 15%; animation-duration: 2.3s; animation-delay: 1.1s;"></div>
+            <div class="rain-streak" style="left: 25%; animation-duration: 2.0s; animation-delay: 0.5s;"></div>
+            <div class="rain-streak" style="left: 35%; animation-duration: 2.4s; animation-delay: 1.5s;"></div>
+            <div class="rain-streak" style="left: 45%; animation-duration: 2.2s; animation-delay: 0.1s;"></div>
+            <div class="rain-streak" style="left: 55%; animation-duration: 2.1s; animation-delay: 1.8s;"></div>
+            <div class="rain-streak" style="left: 65%; animation-duration: 2.3s; animation-delay: 0.7s;"></div>
+            <div class="rain-streak" style="left: 75%; animation-duration: 2.0s; animation-delay: 1.3s;"></div>
+            <div class="rain-streak" style="left: 85%; animation-duration: 2.4s; animation-delay: 0.4s;"></div>
+            <div class="rain-streak" style="left: 95%; animation-duration: 2.2s; animation-delay: 1.9s;"></div>
+            <div class="rain-streak" style="left: 10%; animation-duration: 2.2s; animation-delay: 1.6s;"></div>
+            <div class="rain-streak" style="left: 30%; animation-duration: 2.1s; animation-delay: 0.9s;"></div>
+            <div class="rain-streak" style="left: 50%; animation-duration: 2.5s; animation-delay: 1.2s;"></div>
+            <div class="rain-streak" style="left: 70%; animation-duration: 2.0s; animation-delay: 0.3s;"></div>
+            <div class="rain-streak" style="left: 90%; animation-duration: 2.3s; animation-delay: 1.0s;"></div>
         </div>
         
         <div class="max-w-4xl mx-auto relative z-10 text-center">
@@ -307,12 +315,12 @@
                 We have the connections and the facts. Now we need the numbers. Add your name to the official petition calling on Stanford University to amend the 2013 Habitat Conservation Plan.
             </p>
             
-            <div class="bg-gray-900/60 backdrop-blur-md p-10 md:p-14 rounded-2xl shadow-2xl border border-gray-800 border-t-2 border-t-cardinal relative overflow-hidden group">
-                <div class="absolute inset-0 bg-gradient-to-b from-cardinal/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="bg-[#3b0a0a]/40 backdrop-blur-md p-10 md:p-14 rounded-2xl shadow-2xl border border-red-900/50 relative overflow-hidden group">
+                <div class="absolute inset-0 bg-gradient-to-b from-cardinal/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
                 <h3 class="text-3xl font-bold mb-6 text-white relative z-10">Our Official Petition is Live</h3>
-                <p class="text-gray-300 mb-10 text-lg relative z-10">Join the growing list of alumni, students, and faculty demanding a science-backed restoration of Lake Lagunita.</p>
-                <a href="https://c.org/ZsH4hwMZGQ" target="_blank" class="relative z-10 inline-block bg-cardinal text-white font-bold text-lg py-5 px-12 rounded-lg shadow-xl hover:bg-cardinal-dark hover:shadow-cardinal-glow transition-all transform duration-200">
+                <p class="text-red-100 mb-10 text-lg relative z-10 font-light">Join the growing list of alumni, students, and faculty demanding a science-backed restoration of Lake Lagunita.</p>
+                <a href="https://c.org/ZsH4hwMZGQ" target="_blank" class="relative z-10 inline-block bg-white text-cardinal font-bold text-lg py-5 px-12 rounded-lg shadow-xl hover:bg-gray-100 hover:scale-105 transition-all transform duration-200">
                     Sign the Petition Now
                 </a>
             </div>
