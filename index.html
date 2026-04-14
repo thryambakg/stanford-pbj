@@ -9,7 +9,7 @@
         /* Stanford Cardinal Red Palette & Dark Theme Variables */
         :root {
             --cardinal: #8C1515;
-            --cardinal-dark: #580c0c; /* Deep red for the header */
+            --cardinal-dark: #580c0c; 
             --cardinal-glow: rgba(140, 21, 21, 0.4);
         }
         
@@ -51,7 +51,10 @@
             position: absolute;
             width: 800px;
             height: 800px;
-            background: radial-gradient(circle, rgba(140, 21, 21, 0.15) 0%, transparent 60%);
+            /* Increased opacity to 0.3 and slightly brightened the red hex values */
+            background: radial-gradient(circle, rgba(180, 30, 30, 0.3) 0%, transparent 60%);
+            /* Screen blend mode makes it act like real light over dark backgrounds */
+            mix-blend-mode: screen;
             border-radius: 50%;
             pointer-events: none;
             transform: translate(-50%, -50%);
@@ -79,7 +82,7 @@
         </div>
     </header>
 
-    <section class="py-32 px-6 border-b border-gray-800 relative overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: linear-gradient(to bottom, rgba(3, 7, 18, 0.75), rgba(3, 7, 18, 0.95)), url('image_8f0851.jpeg');">
+    <section class="py-32 px-6 border-b border-gray-800 relative overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: linear-gradient(to bottom, rgba(3, 7, 18, 0.75), rgba(3, 7, 18, 0.95)), url('image_8f0851.jpg');">
         <div class="max-w-4xl mx-auto text-center relative z-10">
             <span class="inline-block py-1 px-3 rounded-full bg-gray-900/80 backdrop-blur text-cardinal text-sm font-bold tracking-widest mb-6 uppercase border border-red-900/50 shadow-inner">
                 Project for Biome re-Juvenation
@@ -303,7 +306,6 @@
         document.body.onpointermove = event => {
             const { pageX, pageY } = event;
             
-            // Using animate creates a much smoother, fluid tracking effect
             blob.animate({
                 left: `${pageX}px`,
                 top: `${pageY}px`
